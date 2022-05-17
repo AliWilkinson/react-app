@@ -1,4 +1,5 @@
 import React from "react";
+import "./searchEngine.css";
 
 export default function SearchEngine() {
   let form = (
@@ -10,15 +11,21 @@ export default function SearchEngine() {
       </div>
       <div className="col-7">
         <form id="city-search">
-          <div class="form-group">
-            <input
-              id="city-name"
-              type="search"
-              class="form-control"
-              placeholder="Search a City"
-            />
+          <div className="row">
+            <div className="col-10">
+              <div className="form-group">
+                <input
+                  id="city-name"
+                  type="search"
+                  className="form-control"
+                  placeholder="Search a City"
+                />
+              </div>
+            </div>
+            <div className="col-2">
+              <input type="submit" value="search" />
+            </div>
           </div>
-          <input type="submit" value="search" />
         </form>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import "./currentWeather.css";
 
 export default function CurrentWeather() {
   return (

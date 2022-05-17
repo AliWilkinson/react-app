@@ -4,6 +4,9 @@ import DateTime from "./dateTime";
 import CurrentWeather from "./currentWeather";
 import WeatherConditions from "./weatherConditions";
 import OpenSource from "./openSource";
+import Forecast from "./forecast";
+
+import "./App.css";
 
 export default function App() {
   return (
@@ -16,6 +19,7 @@ export default function App() {
             <DateTime />
             <CurrentWeather />
             <div className="lowerSection">
+              <Forecast />
               <WeatherConditions />
               <OpenSource />
             </div>
