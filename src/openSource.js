@@ -3,7 +3,7 @@ export default function OpenSource() {
   return (
     <small id="open-source">
       <a
-        href="https://github.com/AliWilkinson/Weather-app"
+        href="https://github.com/AliWilkinson/react-app"
         target="_blank"
         rel="noreferrer"
       >
