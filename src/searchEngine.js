@@ -19,6 +19,7 @@ export default function SearchEngine() {
                   type="search"
                   className="form-control"
                   placeholder="Search a City"
+                  autoFocus="on"
                 />
               </div>
             </div>
