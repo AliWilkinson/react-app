@@ -3,10 +3,12 @@ import React, { useState } from "react";
 import "./searchEngine.css";
 import CurrentWeather from "./currentWeather";
 import DateTime from "./dateTime";
+import WeatherConditions from "./weatherConditions";
 
 export default function SearchEngine() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState("");
+  const [conditions, setConditions] = useState("");
 
   function showWeather(response) {
     setWeather({
@@ -14,6 +16,11 @@ export default function SearchEngine() {
       temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+    });
+    setConditions({
+      feel: Math.round(response.data.main.feels_like),
+      humidity: response.data.main.humidity,
+      wind: response.data.wind.speed,
     });
   }
 
@@ -64,6 +71,7 @@ export default function SearchEngine() {
       {form}
       <DateTime />
       <CurrentWeather weather={weather} />
+      <WeatherConditions conditions={conditions} />
     </div>
   );
 }

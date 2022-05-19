@@ -1,6 +1,5 @@
 import React from "react";
 import SearchEngine from "./searchEngine";
-import WeatherConditions from "./weatherConditions";
 import OpenSource from "./openSource";
 import Forecast from "./forecast";
 
@@ -15,7 +14,6 @@ export default function App() {
             <SearchEngine />
             <div className="lowerSection">
               <Forecast />
-              <WeatherConditions />
               <OpenSource />
             </div>
           </div>
