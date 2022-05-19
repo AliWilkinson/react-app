@@ -6,7 +6,13 @@ export default function CurrentWeather(props) {
     <div>
       <h1 id="city">{props.weather.city}</h1>
       <div className="row">
-        <div className="col-6"></div>
+        <div className="col-6">
+          <img
+            src={props.weather.icon}
+            alt={props.weather.description}
+            width="150"
+          />
+        </div>
         <div className="col-6">
           <h2>
             <span id="temp"></span>
