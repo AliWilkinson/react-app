@@ -17,7 +17,7 @@ export default function CurrentWeather(props) {
           <h2>
             <span id="temp"></span>
             {props.weather.temperature}
-            <span id="unit">C</span>
+            <span id="unit">&deg;C</span>
           </h2>
         </div>
       </div>

@@ -7,11 +7,12 @@ import WeatherConditions from "./weatherConditions";
 
 export default function SearchEngine() {
   const [city, setCity] = useState("");
-  const [weather, setWeather] = useState("");
-  const [conditions, setConditions] = useState("");
+  const [weather, setWeather] = useState({ ready: false });
+  const [conditions, setConditions] = useState({});
 
   function showWeather(response) {
     setWeather({
+      ready: true,
       city: response.data.name,
       temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
@@ -66,12 +67,19 @@ export default function SearchEngine() {
     </div>
   );
 
-  return (
-    <div>
-      {form}
-      <DateTime />
-      <CurrentWeather weather={weather} />
-      <WeatherConditions conditions={conditions} />
-    </div>
-  );
+  if (weather.ready) {
+    return (
+      <div>
+        {form}
+        <DateTime />
+        <CurrentWeather weather={weather} />
+        <WeatherConditions conditions={conditions} />
+      </div>
+    );
+  } else {
+    const apiKey = `5c086425194ae4da9c42b9089eab65e7`;
+    const defaultCity = `Milan`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${defaultCity}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(showWeather);
+  }
 }
