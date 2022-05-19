@@ -6,7 +6,7 @@ export default function OpenSource() {
       <a
         href="https://github.com/AliWilkinson/react-app"
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
       >
         Open-source code,
       </a>
