@@ -16,7 +16,7 @@ export default function SearchEngine(props) {
       city: response.data.name,
       temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: response.data.weather[0].icon,
     });
     setConditions({
       feel: Math.round(response.data.main.feels_like),
