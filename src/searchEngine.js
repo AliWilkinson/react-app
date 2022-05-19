@@ -5,7 +5,7 @@ import CurrentWeather from "./currentWeather";
 import DateTime from "./dateTime";
 import WeatherConditions from "./weatherConditions";
 
-export default function SearchEngine() {
+export default function SearchEngine(props) {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState({ ready: false });
   const [conditions, setConditions] = useState({});
@@ -78,8 +78,7 @@ export default function SearchEngine() {
     );
   } else {
     const apiKey = `5c086425194ae4da9c42b9089eab65e7`;
-    const defaultCity = `Milan`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${defaultCity}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(showWeather);
   }
 }
