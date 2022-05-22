@@ -1,6 +1,7 @@
 import React from "react";
 import "./currentWeather.css";
 import WeatherIcon from "./weatherIcon";
+import Temperature from "./temperature";
 
 export default function CurrentWeather(props) {
   return (
@@ -17,9 +18,7 @@ export default function CurrentWeather(props) {
         </div>
         <div className="col-6">
           <h2>
-            <span id="temp"></span>
-            {props.weather.temperature}
-            <span id="unit">&deg;C</span>
+            <Temperature celsius={props.weather.temperature} />
           </h2>
         </div>
       </div>
