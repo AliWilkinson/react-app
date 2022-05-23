@@ -13,9 +13,7 @@
     "react-animated-weather-updated": "^1.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "^2.1.8",
-    "web-vitals": "^2.1.4",
-  "homepage" : "http://myname.github.io/myapp",
-
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
