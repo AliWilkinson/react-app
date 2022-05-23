@@ -17,6 +17,7 @@ export default function SearchEngine(props) {
       temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
       icon: response.data.weather[0].icon,
+      date: new Date(response.data.dt * 1000),
     });
     setConditions({
       feel: Math.round(response.data.main.feels_like),
@@ -71,7 +72,7 @@ export default function SearchEngine(props) {
     return (
       <div>
         {form}
-        <DateTime />
+        <DateTime date={weather.date} />
         <CurrentWeather weather={weather} />
         <WeatherConditions conditions={conditions} />
       </div>
