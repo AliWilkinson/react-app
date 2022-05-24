@@ -1,7 +1,6 @@
 import React from "react";
 import SearchEngine from "./searchEngine";
 import OpenSource from "./openSource";
-import Forecast from "./forecast";
 
 import "./App.css";
 
@@ -13,7 +12,6 @@ export default function App() {
           <div className="weather-app">
             <SearchEngine defaultCity="Milan" />
             <div className="lowerSection">
-              <Forecast />
               <OpenSource />
             </div>
           </div>

@@ -4,6 +4,7 @@ import "./searchEngine.css";
 import CurrentWeather from "./currentWeather";
 import DateTime from "./dateTime";
 import WeatherConditions from "./weatherConditions";
+import Forecast from "./forecast";
 
 export default function SearchEngine(props) {
   const [city, setCity] = useState("");
@@ -18,6 +19,7 @@ export default function SearchEngine(props) {
       description: response.data.weather[0].description,
       icon: response.data.weather[0].icon,
       date: new Date(response.data.dt * 1000),
+      coordinates: response.data.coord,
     });
     setConditions({
       feel: Math.round(response.data.main.feels_like),
@@ -69,11 +71,13 @@ export default function SearchEngine(props) {
   );
 
   if (weather.ready) {
+    console.log(weather);
     return (
       <div>
         {form}
         <DateTime date={weather.date} />
         <CurrentWeather weather={weather} />
+        <Forecast coordinates={weather.coordinates} />
         <WeatherConditions conditions={conditions} />
       </div>
     );
