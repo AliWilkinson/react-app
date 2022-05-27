@@ -2,32 +2,31 @@ import React from "react";
 import "./dateTime.css";
 
 export default function DateTime(props) {
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let day = days[props.date.getDay()];
-  let hours = props.date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
+  let UTCHours = new Date().getUTCHours();
+  let UTCMinutes = new Date().getUTCMinutes();
+  let secondsFromUTC = props.timezone;
+  let TimezoneMinutes = (secondsFromUTC % 3600) / 60;
+  let TimezoneHours = (secondsFromUTC % 86400) / 3600;
+  let localHours = UTCHours + TimezoneHours;
+
+  if (localHours >= 24) {
+    localHours = localHours - 24;
   }
-  let minutes = props.date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
+  if (localHours < 10) {
+    localHours = `0${localHours}`;
+  }
+
+  let localMinutes = UTCMinutes + TimezoneMinutes;
+  if (localMinutes < 10) {
+    localMinutes = `0${localMinutes}`;
   }
 
   return (
     <div>
       <br />
-      <small id="date"> {day} </small>
-      <small id="time">
-        {" "}
-        {hours}:{minutes}{" "}
+
+      <small>
+        {localHours} : {localMinutes}{" "}
       </small>
       <br />
     </div>

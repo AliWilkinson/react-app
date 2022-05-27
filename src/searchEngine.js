@@ -20,6 +20,7 @@ export default function SearchEngine(props) {
       icon: response.data.weather[0].icon,
       date: new Date(response.data.dt * 1000),
       coordinates: response.data.coord,
+      timezone: response.data.timezone,
     });
     setConditions({
       feel: Math.round(response.data.main.feels_like),
@@ -75,7 +76,7 @@ export default function SearchEngine(props) {
     return (
       <div>
         {form}
-        <DateTime date={weather.date} />
+        <DateTime date={weather.date} timezone={weather.timezone} />
         <CurrentWeather weather={weather} />
         <Forecast coordinates={weather.coordinates} />
         <WeatherConditions conditions={conditions} />
