@@ -24,8 +24,7 @@ export default function DateTime(props) {
   return (
     <div>
       <br />
-
-      <small>
+      <small className="localTime">
         {localHours} : {localMinutes}{" "}
       </small>
       <br />
