@@ -42,29 +42,18 @@ export default function SearchEngine(props) {
 
   let form = (
     <div className="row">
-      <div align="right" className="col-5">
-        <button id="location-button" title="Use Current Location">
-          <i className="fas fa-location-arrow"></i>
-        </button>
-      </div>
-      <div className="col-7">
+      <div align="right" className="col-7"></div>
+      <div className="col-5">
         <form id="city-search" onSubmit={handleSubmit}>
-          <div className="row">
-            <div className="col-10">
-              <div className="form-group">
-                <input
-                  id="city-name"
-                  type="search"
-                  className="form-control"
-                  placeholder="Search a City"
-                  autoFocus="on"
-                  onChange={updateCity}
-                />
-              </div>
-            </div>
-            <div className="col-2">
-              <input type="submit" value="search" />
-            </div>
+          <div className="form-group">
+            <input
+              id="city-name"
+              type="search"
+              className="form-control"
+              placeholder="Search a City"
+              autoFocus="on"
+              onChange={updateCity}
+            />
           </div>
         </form>
       </div>
